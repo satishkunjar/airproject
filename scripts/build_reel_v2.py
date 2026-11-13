@@ -115,7 +115,7 @@ TITLE = os.environ.get("TITLE_PNG")
 if TITLE and TEXT != "none":
     hs, he = next((st, en) for st, en, c in shot_times if c == "hook")
     args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{he:.3f}", "-i", TITLE]
-    fg.append(f"[{k}:v]format=rgba,fade=t=in:st={hs:.3f}:d=0.04:alpha=1,"
+    fg.append(f"[{k}:v]format=rgba,"
               f"fade=t=out:st={he - 0.2:.3f}:d=0.2:alpha=1[ttl]")
     fg.append(f"[vc][ttl]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[vt]")
     vin = "[vt]"
