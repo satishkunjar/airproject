@@ -26,7 +26,7 @@ P = lambda name, dur, zoom="in": ("PHOTO:" + name, [(0, dur, zoom)])
 SHOTS = [
     # HOOK: biggest jump beside the waterfall, slow-mo through the fall
     (*P("801ab1c7-image.jpg", 1.6, "in"), "hook"),
-    ("c10", [(4.9, 7.0, 1.0)], None),
+    ("c10", [(5.15, 7.0, 1.0)], None),
     # SLIDES
     ("c01", [(0.0, 0.6, 1.3), (0.6, 1.9, 1.0)], ("SLIDE", 1, 4)),
     ("c01", [(15.0, 15.8, 1.3), (15.8, 17.4, 1.0)], ("SLIDE", 2, 4)),
@@ -40,10 +40,9 @@ SHOTS = [
     ("c02", [(4.0, 6.2, 1.0)], ("CLIFF JUMP", 1, 8)),
     ("c02", [(35.8, 38.4, 1.0)], ("CLIFF JUMP", 2, 8)),
     ("c12", [(47.0, 49.4, 1.0)], ("CLIFF JUMP", 3, 8)),
-    ("c12", [(64.0, 66.4, 1.0)], ("CLIFF JUMP", 4, 8)),
-    ("c12", [(82.4, 84.6, 1.0)], ("CLIFF JUMP", 5, 8)),
-    ("c09", [(6.6, 8.69, 1.0)], ("CLIFF JUMP", 6, 8)),
-    ("c14", [(2.9, 5.2, 1.0)], ("CLIFF JUMP", 7, 8)),
+    ("c12", [(64.5, 66.4, 1.0)], ("CLIFF JUMP", 4, 8)),
+    ("c12", [(82.7, 84.6, 1.0)], ("CLIFF JUMP", 5, 8)),
+    ("c14", [(3.1, 5.2, 1.0)], ("CLIFF JUMP", 7, 8)),
     ("c11", [(11.2, 12.2, 1.0), (12.2, 13.0, 0.6), (13.0, 14.4, 1.0)], "finale"),
     # OUTRO photo montage
     (*P("3b4eff6f-image.jpg", 1.3, "in"), None),
