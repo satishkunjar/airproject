@@ -44,6 +44,8 @@ SHOTS = [
     ("c12", [(82.7, 84.6, 1.0)], ("CLIFF JUMP", 5, 8)),
     ("c14", [(3.1, 5.2, 1.0)], ("CLIFF JUMP", 7, 8)),
     ("c11", [(11.2, 12.2, 1.0), (12.2, 13.0, 0.6), (13.0, 14.4, 1.0)], "finale"),
+    # the three of us swimming together, from above
+    ("c03", [(30.6, 34.8, 1.5)], None),
     # OUTRO photo montage
     (*P("3b4eff6f-image.jpg", 1.3, "in"), None),
     (*P("39ba0382-image.jpg", 1.1, "out"), None),
