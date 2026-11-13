@@ -104,13 +104,22 @@ TEXT = os.environ.get("TEXT", "minimal")  # minimal | none
 for st, en, c in shot_times:
     if TEXT == "none":
         break
-    if c == "hook":
+    if c == "hook" and not os.environ.get("TITLE_PNG"):
         cap("3 FRIENDS", st + 0.15, en - 0.03, 64, 150)
         cap("CANYONEERING IN CEBU", st + 0.15, en - 0.03, 64, 232)
     elif c == "end":
         cap("Kawasan Falls, Cebu", st + 0.2, en, 64, 170, FONT2)
 
-fg.append("[vc]" + "".join(c + "," for c in caps) + f"fade=t=out:st={TOTAL - 0.3:.3f}:d=0.3:color=black[vout]")
+vin = "[vc]"
+TITLE = os.environ.get("TITLE_PNG")
+if TITLE and TEXT != "none":
+    hs, he = next((st, en) for st, en, c in shot_times if c == "hook")
+    args += ["-loop", "1", "-framerate", str(FPS), "-t", f"{he:.3f}", "-i", TITLE]
+    fg.append(f"[{k}:v]format=rgba,fade=t=in:st={hs:.3f}:d=0.04:alpha=1,"
+              f"fade=t=out:st={he - 0.2:.3f}:d=0.2:alpha=1[ttl]")
+    fg.append(f"[vc][ttl]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[vt]")
+    vin = "[vt]"
+fg.append(vin + "".join(c + "," for c in caps) + f"fade=t=out:st={TOTAL - 0.3:.3f}:d=0.3:color=black[vout]")
 fg.append(f"[ac]volume=0.9,afade=t=out:st={TOTAL - 0.5:.3f}:d=0.5,alimiter=limit=0.9[aout]")
 
 script = os.path.join(WORK, "graph2.txt"); open(script, "w").write(";\n".join(fg))
