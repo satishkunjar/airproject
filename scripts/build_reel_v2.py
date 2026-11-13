@@ -27,6 +27,11 @@ SHOTS = [
     # HOOK: biggest jump beside the waterfall, slow-mo through the fall
     (*P("801ab1c7-image.jpg", 1.6, "in"), "hook"),
     ("c10", [(5.15, 7.0, 1.0)], None),
+    # SCENERY: waterfall from the top, the canyon pool, the jungle lagoon, peering into the canyon
+    ("c01", [(3.0, 4.6, 1.0)], None),
+    ("c02", [(8.4, 9.9, 1.0)], None),
+    ("c04", [(16.0, 17.4, 1.0)], None),
+    ("c12", [(2.4, 4.2, 1.0)], None),
     # SLIDES
     ("c01", [(0.0, 0.6, 1.3), (0.6, 1.9, 1.0)], ("SLIDE", 1, 4)),
     ("c01", [(15.0, 15.8, 1.3), (15.8, 17.4, 1.0)], ("SLIDE", 2, 4)),
