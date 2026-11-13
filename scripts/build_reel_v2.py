@@ -101,25 +101,16 @@ def cap(text, s, e, size, y, font=FONT, fade=0.15):
                 f"borderw=7:bordercolor=black@0.55:shadowx=0:shadowy=6:shadowcolor=black@0.45:"
                 f"x=(w-text_w)/2:y={y}:alpha='{alpha}':enable='between(t,{s:.3f},{e:.3f})'")
 
+TEXT = os.environ.get("TEXT", "minimal")  # minimal | none
 for st, en, c in shot_times:
+    if TEXT == "none":
+        break
     if c == "hook":
-        cap("3 FRIENDS", st + 0.1, en - 0.03, 118, 150)
-        cap("VS  CEBU CANYONS", st + 0.3, en - 0.03, 72, 290)
-        cap("wait for jump 8", st + 0.6, en - 0.03, 46, 1560, FONT2)
-    elif c == "intro":
-        cap("CANYONEERING", st + 0.05, en - 0.03, 96, 170)
-        cap("Badian, Cebu", st + 0.2, en - 0.03, 56, 290, FONT2)
-    elif isinstance(c, tuple):
-        name, i, nn = c
-        cap(f"{name} {i}/{nn}", st + 0.03, min(st + 1.7, en - 0.03), 76, 170)
-    elif c == "finale":
-        cap("CLIFF JUMP 8/8", st + 0.03, en - 0.03, 76, 170)
-        cap("SAVED THE BEST FOR LAST", st + 0.3, en - 0.03, 58, 275, FONT2)
+        cap("3 FRIENDS VS CEBU CANYONS", st + 0.15, en - 0.03, 58, 170)
     elif c == "end":
-        cap("KAWASAN FALLS", st + 0.15, en, 100, 170)
-        cap("Cebu, Philippines", st + 0.4, en, 56, 300, FONT2)
+        cap("Kawasan Falls, Cebu", st + 0.2, en, 64, 170, FONT2)
 
-fg.append("[vc]" + ",".join(caps) + f",fade=t=out:st={TOTAL - 0.3:.3f}:d=0.3:color=black[vout]")
+fg.append("[vc]" + "".join(c + "," for c in caps) + f"fade=t=out:st={TOTAL - 0.3:.3f}:d=0.3:color=black[vout]")
 fg.append(f"[ac]volume=0.9,afade=t=out:st={TOTAL - 0.5:.3f}:d=0.5,alimiter=limit=0.9[aout]")
 
 script = os.path.join(WORK, "graph2.txt"); open(script, "w").write(";\n".join(fg))
