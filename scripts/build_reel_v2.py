@@ -106,7 +106,8 @@ for st, en, c in shot_times:
     if TEXT == "none":
         break
     if c == "hook":
-        cap("3 FRIENDS CANYONEERING IN CEBU", st + 0.15, en - 0.03, 58, 170)
+        cap("3 FRIENDS", st + 0.15, en - 0.03, 64, 150)
+        cap("CANYONEERING IN CEBU", st + 0.15, en - 0.03, 64, 232)
     elif c == "end":
         cap("Kawasan Falls, Cebu", st + 0.2, en, 64, 170, FONT2)
 
